@@ -1,4 +1,12 @@
-let $PATH = "D:\\Program Files\\Git\\usr\\bin;".$PATH
+" autodetect git usr bin path
+function! GetGitUsrBinPath()
+  let gitExePath = system("where git")
+  let gitMainPathArr = split(gitExePath, "\\")[0:-3]
+  let gitUsrBinArr = gitMainPathArr + ['usr', 'bin']
+  return join(gitUsrBinArr, '\\')
+endfunction
+
+let $PATH = GetGitUsrBinPath().$PATH
 
 function! Cond(Cond, ...)
   let opts = get(a:000, 0, {})
