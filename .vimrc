@@ -22,23 +22,11 @@ set smartindent
 
 " key mapping
 let mapleader = " "
-:inoremap jk <Esc>
+
+if !exists('g:vscode')
+  inoremap jk <Esc>
+endif
+
 nnoremap <leader>p "+p
 
-" fzf
-nnoremap <leader><leader> :Rg<CR>
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>b :Buffers<CR>
-
-" nerdtree
-let NERDTreeShowHidden=1
-nnoremap <leader>t :NERDTree<CR>
-
-" markdown
-let g:mkdp_port='8894'
-let g:vim_markdown_math = 1
-let g:mkdp_echo_preview_url = 1
-autocmd FileType markdown nnoremap <silent> <leader>i :call mdip#MarkdownClipboardImage()<CR>
-let g:mdip_imgdir = 'pic'
-let g:mdip_imgname = 'image'
 

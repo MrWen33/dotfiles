@@ -33,8 +33,11 @@ endif
 
 Plug 'preservim/vim-markdown'
 Plug 'godlygeek/tabular'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+
+Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'ferrine/md-img-paste.vim'
 
@@ -45,4 +48,22 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
+" fuzzy search
+nnoremap <leader><leader> :CtrlPMixed<CR>
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+
+" nerdtree
+let NERDTreeShowHidden=1
+nnoremap <leader>t :NERDTree<CR>
+
+" markdown
+let g:mkdp_port='8894'
+let g:vim_markdown_math = 1
+let g:mkdp_echo_preview_url = 1
+autocmd FileType markdown nnoremap <silent> <leader>i :call mdip#MarkdownClipboardImage()<CR>
+let g:mdip_imgdir = 'pic'
+let g:mdip_imgname = 'image'
+
+source $HOME/.vim/cocsettings.vim
 
