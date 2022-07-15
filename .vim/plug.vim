@@ -48,14 +48,16 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
+source $HOME/.vim/cocsettings.vim
+
 " fuzzy search
-nnoremap <leader><leader> :CtrlPMixed<CR>
-nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
+:verbose nnoremap <leader><leader> :CtrlPMixed<CR>
+:verbose nnoremap <leader>f :CtrlP<CR>
+:verbose nnoremap <leader>b :CtrlPBuffer<CR>
 
 " nerdtree
 let NERDTreeShowHidden=1
-nnoremap <leader>t :NERDTree<CR>
+:verbose nnoremap <leader>t :NERDTree<CR>
 
 " markdown
 let g:mkdp_port='8894'
@@ -65,5 +67,4 @@ autocmd FileType markdown nnoremap <silent> <leader>i :call mdip#MarkdownClipboa
 let g:mdip_imgdir = 'pic'
 let g:mdip_imgname = 'image'
 
-source $HOME/.vim/cocsettings.vim
 

@@ -1,4 +1,5 @@
 " autodetect git usr bin path
+"
 function! GetGitUsrBinPath()
   let gitExePath = system("where git")
   let gitMainPathArr = split(gitExePath, "\\")[0:-3]
@@ -8,20 +9,21 @@ endfunction
 
 let $PATH = GetGitUsrBinPath().";".$PATH
 
+let mapleader = " "
+
 " load vim plugs
-source $HOME/.vim/plug.vim
+source ~/.vim/plug.vim
 
 set number relativenumber
 set encoding=utf-8
 
+set shiftwidth=4
 set tabstop=4
-set autoindent
-set smartindent
+set expandtab
 
 :set ic
 
 " key mapping
-let mapleader = " "
 
 if !exists('g:vscode')
   inoremap jk <Esc>
